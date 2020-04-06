@@ -41,25 +41,6 @@ int main(int argc, char *argv[]){
     return 0;
 }
 
-void benchmark_array(int n){
-    printf("Starting array merge sort benchmark: LINEAR\n\n");
-    struct two_array *data = malloc(n * sizeof(struct two_array));
-
-    generate_doubleAr(data, n);
-
-    printf("Sorting...%d\n",n);
-    clock_t t;
-
-    // BENCHMARK ARRAY
-    t = clock();
-    merge_sort(data, 0, n);
-    t = clock() - t;
-    double taken = ((double)t) / CLOCKS_PER_SEC;
-    printf("Done. Took %f seconds.\n\n", taken);
-
-    if (!data) free(data); 
-}
-
 /* l is for left index and r is right index of the 
    sub-array of arr to be sorted */
 void merge_sort(struct two_array arr[], int l, int r)
